@@ -2,6 +2,7 @@ import { useState } from "react"
 import './App.css'
 import Board from "./Board"
 import { initialCards } from "./constants"
+import { CardDeck, Cards} from "./types"
 
 function App() {
   const [board, setBoard] = useState([
@@ -19,15 +20,6 @@ function App() {
       <Board board={board} />
     </>
   )
-}
-
-type Card = number[][]
-
-type CardDeck = Card[]
-
-type Cards = {
-  playerCards: CardDeck[];
-  fifthCard: Card
 }
 
 function generateCards(cards: CardDeck): Cards {
