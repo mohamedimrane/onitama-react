@@ -13,6 +13,8 @@ function App() {
     ["s1", "s1", "m1", "s1", "s1"],
   ])
 
+  const [turn , setTurn] = useState(0)
+
   const [cards, setCards] = useState(generateCards(initialCards))
 
   return (
@@ -20,6 +22,10 @@ function App() {
       <Board board={board} />
     </>
   )
+}
+
+function nextTurn(turn: number, setTurn: React.Dispatch<React.SetStateAction<number>>) {
+  setTurn(turn === 0 ? 1 : 0)
 }
 
 function generateCards(cards: CardDeck): Cards {
