@@ -3,6 +3,7 @@ import './App.css'
 import Board from "./Board"
 import { initialCards } from "./constants"
 import { CardDeck, Cards} from "./types"
+import CardShower from "./CardShower"
 
 function App() {
   const [board, setBoard] = useState([
@@ -20,6 +21,7 @@ function App() {
   return (
     <>
       <Board board={board} />
+      <CardShower cards={cards} turn={turn} />
     </>
   )
 }

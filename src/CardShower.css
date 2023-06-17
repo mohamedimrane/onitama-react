@@ -1,0 +1,29 @@
+.card-container {
+  display: flex;
+  /* justify-content: space-evenly; */
+}
+
+.card {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.card:nth-child(0) {
+    margin-right: 0px;
+}
+
+.card-row {
+  display: flex;
+}
+
+
+.card-cell {
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid black;
+  font-size: 10px;
+}
