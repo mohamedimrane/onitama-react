@@ -1,9 +1,9 @@
 import { useState } from "react"
-import './App.css'
 import Board from "./Board"
 import { initialCards } from "./constants"
 import { CardDeck, Cards} from "./types"
 import CardShower from "./CardShower"
+import './css/App.css'
 
 function App() {
   const [board, setBoard] = useState([

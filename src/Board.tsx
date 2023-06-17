@@ -1,4 +1,4 @@
-import "./Board.css"
+import "./css/Board.css"
 
 type Props = {
     board: string[][]

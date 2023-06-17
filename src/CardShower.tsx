@@ -1,6 +1,6 @@
 import { emptyBoard } from "./constants"
 import { Card, Cards } from "./types"
-import "./CardShower.css"
+import "./css/CardShower.css"
 
 type Props = {
   cards: Cards;
