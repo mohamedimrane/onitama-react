@@ -21,6 +21,7 @@ function App() {
   return (
     <>
       <Board board={board} />
+      <div className="turn-text" onClick={() => nextTurn(turn, setTurn)}>turn: {turn}</div>
       <CardShower cards={cards} turn={turn} />
     </>
   )
