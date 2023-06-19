@@ -13,3 +13,9 @@ export const emptyBoard = [
     [0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0]
 ]
+
+export const emptyC = ""
+export const m0C = "m0"
+export const m1C = "m1"
+export const d0C = "d0"
+export const d1C = "d1"

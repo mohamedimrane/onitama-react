@@ -1,5 +1,5 @@
 import { emptyBoard } from "./constants"
-import { Card, Cards } from "./types"
+import { Card, Cards, Position } from "./types"
 import "./css/CardShower.css"
 
 type Props = {
@@ -22,7 +22,7 @@ function CardShower({cards, turn}: Props) {
   </>
 }
 
-function matchCells(card: Card, cell: number[]) {
+function matchCells(card: Card, cell: Position) {
   return card.some(i => {
     return i[0] === cell[0]-2 && i[1] === cell[1]-2
   })

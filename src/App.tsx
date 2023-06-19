@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Board from "./Board"
 import { initialCards } from "./constants"
-import { CardDeck, Cards} from "./types"
+import { Card, CardDeck, Cards, Position} from "./types"
 import CardShower from "./CardShower"
 import './css/App.css'
 
@@ -18,9 +18,12 @@ function App() {
 
   const [cards, setCards] = useState(generateCards(initialCards))
 
+  const [selectedCell, setSelectedCell] = useState<Position>([NaN, NaN])
+  const [selectedCard, setSelectedCard] = useState<Card>([[NaN]])
+
   return (
     <>
-      <Board board={board} />
+      <Board board={board} turn={turn} setSelectedCell={setSelectedCell} />
       <div className="turn-text" onClick={() => nextTurn(turn, setTurn)}>turn: {turn}</div>
       <CardShower cards={cards} turn={turn} />
     </>

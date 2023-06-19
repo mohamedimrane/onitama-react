@@ -1,4 +1,6 @@
-export type Card = number[][]
+export type Position = number[]
+
+export type Card = Position[]
 
 export type CardDeck = Card[]
 
