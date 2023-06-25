@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <Board board={board} turn={turn} setSelectedCell={setSelectedCell} />
+      <Board board={board} turn={turn} setSelectedCell={setSelectedCell}  selectedCell={selectedCell} selectedCard={selectedCard} />
       <div className="turn-text" onClick={() => nextTurn(turn, setTurn)}>turn: {turn}</div>
       <CardShower cards={cards} turn={turn} setSelectedCard={setSelectedCard} />
     </>
