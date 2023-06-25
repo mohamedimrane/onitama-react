@@ -4,13 +4,19 @@ import "./css/CardShower.css"
 
 type Props = {
   cards: Cards;
-  turn: number
+  turn: number;
+  setSelectedCard: React.Dispatch<React.SetStateAction<Card>>
 }
 
-function CardShower({cards, turn}: Props) {
+function CardShower({cards, turn, setSelectedCard}: Props) {
+
+  function handleClick(card: Card) {
+    return () => { setSelectedCard(card) }
+  }
+
   return <>
     <div className="card-container">
-      {cards.playerCards[turn].map((card, iCard) => (<div className="card" key={iCard}>
+      {cards.playerCards[turn].map((card, iCard) => (<div className="card" onClick={handleClick(card)} key={iCard}>
         {emptyBoard.map((row, iRow) => (<div className="card-row" key={iRow}>
           {row.map((cell, iCell) => (<div className="card-cell" key={iCell}>
             {matchCells(card, [iCell, iRow]) ? "X" : ""}
