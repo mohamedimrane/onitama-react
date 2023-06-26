@@ -24,7 +24,7 @@ function App() {
   return (
     <>
       <Board board={board} turn={turn} setSelectedCell={setSelectedCell}  selectedCell={selectedCell} selectedCard={selectedCard} />
-      <div className="turn-text" onClick={() => nextTurn(turn, setTurn)}>turn: {turn}</div>
+      <div className="turn-text" onClick={() => nextTurn(turn, setTurn, setSelectedCell, setSelectedCard)}>turn: {turn}</div>
       <CardShower cards={cards} selectedCardIndex={cards.playerCards[turn].findIndex(card => {
         return card === selectedCard
       })} turn={turn} setSelectedCard={setSelectedCard} />
@@ -32,8 +32,10 @@ function App() {
   )
 }
 
-function nextTurn(turn: number, setTurn: React.Dispatch<React.SetStateAction<number>>) {
+function nextTurn(turn: number, setTurn: React.Dispatch<React.SetStateAction<number>>, setSelectedCell: React.Dispatch<React.SetStateAction<Position>>, setSelectedCard: React.Dispatch<React.SetStateAction<Card>>) {
   setTurn(turn === 0 ? 1 : 0)
+  setSelectedCell([NaN, NaN])
+  setSelectedCard([[NaN]])
 }
 
 function generateCards(cards: CardDeck): Cards {
