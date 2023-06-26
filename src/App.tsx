@@ -7,11 +7,11 @@ import './css/App.css'
 
 function App() {
   const [board, setBoard] = useState([
-    ["s0", "s0", "m0", "s0", "s0"],
+    ["d0", "d0", "m0", "d0", "d0"],
     ["", "", "", "", ""],
     ["", "", "", "", ""],
     ["", "", "", "", ""],
-    ["s1", "s1", "m1", "s1", "s1"],
+    ["d1", "d1", "m1", "d1", "d1"],
   ])
 
   const [turn , setTurn] = useState(0)
