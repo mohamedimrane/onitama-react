@@ -3,9 +3,9 @@ import { Card, Cards, Position } from "./types"
 import "./css/CardShower.css"
 
 type Props = {
-  cards: Cards;
-  turn: number;
-  selectedCardIndex: number;
+  cards: Cards
+  turn: number
+  selectedCardIndex: number
   setSelectedCard: React.Dispatch<React.SetStateAction<Card>>
 }
 

@@ -3,10 +3,10 @@ import { Position } from "./types"
 import "./css/Cell.css"
 
 type Props = {
-  highlighted: boolean;
-  cell: string;
-  position: Position;
-  turn: number;
+  highlighted: boolean
+  cell: string
+  position: Position
+  turn: number
   setSelectedCell: React.Dispatch<React.SetStateAction<Position>>
 }
 

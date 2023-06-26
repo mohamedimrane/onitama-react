@@ -3,10 +3,10 @@ import "./css/Board.css"
 import { Card, Position } from "./types"
 
 type Props = {
-  board: string[][];
-  turn: number;
-  setSelectedCell: React.Dispatch<React.SetStateAction<Position>>;
-  selectedCell: Position;
+  board: string[][]
+  turn: number
+  setSelectedCell: React.Dispatch<React.SetStateAction<Position>>
+  selectedCell: Position
   selectedCard: Card
 }
 
