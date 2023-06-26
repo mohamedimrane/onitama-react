@@ -21,10 +21,12 @@ function App() {
   const [selectedCell, setSelectedCell] = useState<Position>(nilPos)
   const [selectedCard, setSelectedCard] = useState<Card>(nilCard)
 
+  const nextTurnFn = () => nextTurn(turn, setTurn, setSelectedCell, setSelectedCard)
+
   return (
     <>
-      <Board board={board} turn={turn} setSelectedCell={setSelectedCell}  selectedCell={selectedCell} selectedCard={selectedCard} />
-      <div className="turn-text" onClick={() => nextTurn(turn, setTurn, setSelectedCell, setSelectedCard)}>turn: {turn}</div>
+      <Board board={board} setBoard={setBoard} turn={turn} setSelectedCell={setSelectedCell}  selectedCell={selectedCell} selectedCard={selectedCard} nextTurn={nextTurnFn} />
+      <div className="turn-text" onClick={nextTurnFn}>turn: {turn}</div>
       <CardShower cards={cards} selectedCardIndex={cards.playerCards[turn].findIndex(card => {
         return card === selectedCard
       })} turn={turn} setSelectedCard={setSelectedCard} />

@@ -8,13 +8,15 @@ type Props = {
   setSelectedCell: React.Dispatch<React.SetStateAction<Position>>
   selectedCell: Position
   selectedCard: Card
+  setBoard: React.Dispatch<React.SetStateAction<string[][]>>
+  nextTurn: () => void
 }
 
-function Board({board, setSelectedCell, turn, selectedCell, selectedCard}: Props) {
+function Board({board, setSelectedCell, turn, selectedCell, selectedCard, setBoard, nextTurn}: Props) {
   return <>
     <div className="board">
       {board.map((row, iRow) => (<div className="row" key={iRow}>
-        {row.map((cell, iCell) => (<Cell selected={isSelected([iCell, iRow], selectedCell)} highlighted={isHighlighted([iCell, iRow], selectedCell, selectedCard)} cell={cell} position={[iCell, iRow]} setSelectedCell={setSelectedCell} turn={turn} key={iCell} />))}
+        {row.map((cell, iCell) => (<Cell selected={isSelected([iCell, iRow], selectedCell)} highlighted={isHighlighted([iCell, iRow], selectedCell, selectedCard)} cell={cell} position={[iCell, iRow]} board={board} setBoard={setBoard} selectedCell={selectedCell} setSelectedCell={setSelectedCell} turn={turn} nextTurn={nextTurn} key={iCell} />))}
       </div>)) }
     </div>
   </>
