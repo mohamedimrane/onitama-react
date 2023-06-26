@@ -19,7 +19,7 @@ function Cell({highlighted, cell, position, setSelectedCell, turn}: Props) {
   }
 
   return <>
-    <div className={"cell" + (highlighted && cell === emptyC ? " highlighted" : "")} onClick={handleClick}>
+    <div className={"cell" + (highlighted && cell === emptyC ? " highlighted-cell" : "")} onClick={handleClick}>
       {cell}
     </div>
   </>
