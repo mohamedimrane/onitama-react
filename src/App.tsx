@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Board from "./Board"
-import { initialCards } from "./constants"
+import { initialCards, nilCard, nilPos } from "./constants"
 import { Card, CardDeck, Cards, Position} from "./types"
 import CardShower from "./CardShower"
 import './css/App.css'
@@ -18,8 +18,8 @@ function App() {
 
   const [cards, setCards] = useState(generateCards(initialCards))
 
-  const [selectedCell, setSelectedCell] = useState<Position>([NaN, NaN])
-  const [selectedCard, setSelectedCard] = useState<Card>([[NaN]])
+  const [selectedCell, setSelectedCell] = useState<Position>(nilPos)
+  const [selectedCard, setSelectedCard] = useState<Card>(nilCard)
 
   return (
     <>
@@ -34,8 +34,8 @@ function App() {
 
 function nextTurn(turn: number, setTurn: React.Dispatch<React.SetStateAction<number>>, setSelectedCell: React.Dispatch<React.SetStateAction<Position>>, setSelectedCard: React.Dispatch<React.SetStateAction<Card>>) {
   setTurn(turn === 0 ? 1 : 0)
-  setSelectedCell([NaN, NaN])
-  setSelectedCard([[NaN]])
+  setSelectedCell(nilPos)
+  setSelectedCard(nilCard)
 }
 
 function generateCards(cards: CardDeck): Cards {
