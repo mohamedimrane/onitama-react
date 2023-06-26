@@ -1,3 +1,7 @@
 .highlighted-cell {
   background-color: greenyellow;
 }
+
+.selected-cell {
+  background-color: yellow;
+}

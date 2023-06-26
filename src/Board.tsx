@@ -14,10 +14,14 @@ function Board({board, setSelectedCell, turn, selectedCell, selectedCard}: Props
   return <>
     <div className="board">
       {board.map((row, iRow) => (<div className="row" key={iRow}>
-        {row.map((cell, iCell) => (<Cell highlighted={isHighlighted([iCell, iRow], selectedCell, selectedCard)} cell={cell} position={[iCell, iRow]} setSelectedCell={setSelectedCell} turn={turn} key={iCell} />))}
+        {row.map((cell, iCell) => (<Cell selected={isSelected([iCell, iRow], selectedCell)} highlighted={isHighlighted([iCell, iRow], selectedCell, selectedCard)} cell={cell} position={[iCell, iRow]} setSelectedCell={setSelectedCell} turn={turn} key={iCell} />))}
       </div>)) }
     </div>
   </>
+}
+
+function isSelected(cell: Position, selectedCell: Position) {
+  return cell[0] === selectedCell[0] && cell[1] === selectedCell[1]
 }
 
 function isHighlighted(cell: Position, selectedCell: Position, selectedCard: Card): boolean {

@@ -3,6 +3,7 @@ import { Position } from "./types"
 import "./css/Cell.css"
 
 type Props = {
+  selected: boolean
   highlighted: boolean
   cell: string
   position: Position
@@ -10,7 +11,7 @@ type Props = {
   setSelectedCell: React.Dispatch<React.SetStateAction<Position>>
 }
 
-function Cell({highlighted, cell, position, setSelectedCell, turn}: Props) {
+function Cell({selected, highlighted, cell, position, setSelectedCell, turn}: Props) {
 
   function handleClick() {
     if (cell === emptyC) return
@@ -19,7 +20,7 @@ function Cell({highlighted, cell, position, setSelectedCell, turn}: Props) {
   }
 
   return <>
-    <div className={"cell" + (highlighted && cell === emptyC ? " highlighted-cell" : "")} onClick={handleClick}>
+    <div className={"cell" + (highlighted && cell === emptyC ? " highlighted-cell" : selected ? " selected-cell" : "")} onClick={handleClick}>
       {cell}
     </div>
   </>
