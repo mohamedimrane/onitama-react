@@ -25,16 +25,32 @@ function App() {
 
   return (
     <>
-      <Board board={board} setBoard={setBoard} turn={turn} setSelectedCell={setSelectedCell}  selectedCell={selectedCell} selectedCard={selectedCard} nextTurn={nextTurnFn} />
+      <Board
+        board={board}
+        selectedCell={selectedCell}
+        selectedCard={selectedCard}
+        turn={turn}
+        nextTurn={nextTurnFn}
+        setBoard={setBoard}
+        setSelectedCell={setSelectedCell}
+      />
       <div className="turn-text" onClick={nextTurnFn}>turn: {turn}</div>
-      <CardShower cards={cards} selectedCardIndex={cards.playerCards[turn].findIndex(card => {
-        return card === selectedCard
-      })} turn={turn} setSelectedCard={setSelectedCard} />
+      <CardShower
+        cards={cards}
+        selectedCardIndex={cards.playerCards[turn].findIndex(card => (card === selectedCard))}
+        turn={turn}
+        setSelectedCard={setSelectedCard}
+      />
     </>
   )
 }
 
-function nextTurn(turn: number, setTurn: React.Dispatch<React.SetStateAction<number>>, setSelectedCell: React.Dispatch<React.SetStateAction<Position>>, setSelectedCard: React.Dispatch<React.SetStateAction<Card>>) {
+function nextTurn(
+  turn: number,
+  setTurn: React.Dispatch<React.SetStateAction<number>>,
+  setSelectedCell: React.Dispatch<React.SetStateAction<Position>>,
+  setSelectedCard: React.Dispatch<React.SetStateAction<Card>>
+): void {
   setTurn(turn === 0 ? 1 : 0)
   setSelectedCell(nilPos)
   setSelectedCard(nilCard)
