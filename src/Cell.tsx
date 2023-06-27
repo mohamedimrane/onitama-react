@@ -49,7 +49,14 @@ function Cell({selected, highlighted, cell, position, selectedCell, setSelectedC
   }
 
   return <>
-    <div className={"cell" + (highlighted && cell === emptyC ? " highlighted-cell" : selected ? " selected-cell" : "")} onClick={handleClick}>
+    <div className={
+      "cell" + (
+        highlighted && cell === emptyC ? " highlighted-cell" :
+        highlighted && cell !== emptyC && cell !== board[selectedCell[1]][selectedCell[0]] && parseInt(cell.substring(1, 2)) !== turn ? " to-be-attacked-cell" :
+        selected ? " selected-cell" : "")
+      }
+      onClick={handleClick}
+    >
       {cell}
     </div>
   </>

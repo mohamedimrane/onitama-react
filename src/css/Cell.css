@@ -2,6 +2,10 @@
   background-color: greenyellow;
 }
 
+.to-be-attacked-cell {
+  background-color: red;
+}
+
 .selected-cell {
   background-color: yellow;
 }
