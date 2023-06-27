@@ -1,12 +1,12 @@
 import { useState } from "react"
 import Board from "./Board"
 import { initialCards, nilCard, nilPos } from "./constants"
-import { Card, CardDeck, Cards, Position} from "./types"
+import { Board as TBoard, Card, CardDeck, Cards, Position} from "./types"
 import CardShower from "./CardShower"
 import './css/App.css'
 
 function App() {
-  const [board, setBoard] = useState([
+  const [board, setBoard] = useState<TBoard>([
     ["d0", "d0", "m0", "d0", "d0"],
     ["", "", "", "", ""],
     ["", "", "", "", ""],
@@ -16,7 +16,7 @@ function App() {
 
   const [turn , setTurn] = useState(0)
 
-  const [cards, setCards] = useState(generateCards(initialCards))
+  const [cards, setCards] = useState<Cards>(generateCards(initialCards))
 
   const [selectedCell, setSelectedCell] = useState<Position>(nilPos)
   const [selectedCard, setSelectedCard] = useState<Card>(nilCard)

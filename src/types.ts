@@ -1,3 +1,5 @@
+export type Board = string[][]
+
 export type Position = number[]
 
 export type Card = Position[]

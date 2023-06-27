@@ -1,9 +1,9 @@
 import Cell from "./Cell"
-import { Card, Position } from "./types"
+import { Board as TBoard, Card, Position } from "./types"
 import "./css/Board.css"
 
 type Props = {
-  board: string[][]
+  board: TBoard
   selectedCell: Position
   selectedCard: Card
   turn: number

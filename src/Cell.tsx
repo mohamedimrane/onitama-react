@@ -1,9 +1,9 @@
 import { emptyC, nilPos } from "./constants"
-import { Position } from "./types"
+import { Board, Position } from "./types"
 import "./css/Cell.css"
 
 type Props = {
-  board: string[][]
+  board: Board
   cell: string
   position: Position
   selectedCell: Position
