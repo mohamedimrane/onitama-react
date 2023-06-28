@@ -1,4 +1,4 @@
-import { Card, CardDeck, Cards, Position } from "./types"
+import { Board, Card, CardDeck, Position } from "./types"
 
 export const nilPos: Position = [NaN, NaN] // nil position
 
@@ -12,12 +12,12 @@ export const initialCards: CardDeck = [
     [[-1, 1], [1, -1], [2, 0]],          // RABBIT
 ]
 
-export const emptyBoard = [
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0]
+export const emptyBoard: Board = [
+    ["", "", "", "", ""],
+    ["", "", "", "", ""],
+    ["", "", "", "", ""],
+    ["", "", "", "", ""],
+    ["", "", "", "", ""]
 ]
 
 export const emptyC = "" // empty cell

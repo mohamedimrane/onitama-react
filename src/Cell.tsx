@@ -1,6 +1,7 @@
 import { emptyC, nilPos } from "./constants"
 import { Board, Position } from "./types"
 import "./css/Cell.css"
+import { playerOfCell } from "./functions"
 
 type Props = {
   board: Board
@@ -19,7 +20,7 @@ function Cell({board, cell, position, selectedCell, selected, highlighted, turn,
 
   function handleClick(): void {
     // selects cell and returns on clicking onw player's pieces
-    if (parseInt(cell.substring(1, 2)) === turn) {
+    if (playerOfCell(cell) === turn) {
       setSelectedCell(position)
       return
     }
@@ -46,7 +47,7 @@ function Cell({board, cell, position, selectedCell, selected, highlighted, turn,
 
   const className = "cell" + (
     highlighted && cell === emptyC ? " highlighted-cell" :
-    highlighted && cell !== emptyC && cell !== board[selectedCell[1]][selectedCell[0]] && parseInt(cell.substring(1, 2)) !== turn ? " to-be-attacked-cell" :
+    highlighted && cell !== emptyC && cell !== board[selectedCell[1]][selectedCell[0]] && playerOfCell(cell) !== turn ? " to-be-attacked-cell" :
     selected ? " selected-cell" : ""
   )
 

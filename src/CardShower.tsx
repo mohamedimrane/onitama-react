@@ -1,6 +1,7 @@
 import { emptyBoard } from "./constants"
 import { Card, Cards, Position } from "./types"
 import "./css/CardShower.css"
+import { matchCells } from "./functions"
 
 type Props = {
   cards: Cards
@@ -33,12 +34,6 @@ function CardShower({cards, selectedCardIndex, turn, setSelectedCard}: Props) {
       ))}
     </div>
   )
-}
-
-function matchCells(card: Card, cell: Position): boolean {
-  return card.some(i => {
-    return i[0] === cell[0]-2 && i[1] === cell[1]-2
-  })
 }
 
 export default CardShower

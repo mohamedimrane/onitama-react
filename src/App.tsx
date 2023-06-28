@@ -4,6 +4,7 @@ import { initialCards, nilCard, nilPos } from "./constants"
 import { Board as TBoard, Card, CardDeck, Cards, Position} from "./types"
 import CardShower from "./CardShower"
 import './css/App.css'
+import { generateCards } from "./functions"
 
 function App() {
   const [board, setBoard] = useState<TBoard>([
@@ -21,7 +22,11 @@ function App() {
   const [selectedCell, setSelectedCell] = useState<Position>(nilPos)
   const [selectedCard, setSelectedCard] = useState<Card>(nilCard)
 
-  const nextTurnFn = () => nextTurn(turn, setTurn, setSelectedCell, setSelectedCard)
+  function nextTurn(): void {
+    setTurn(turn === 0 ? 1 : 0)
+    setSelectedCell(nilPos)
+    setSelectedCard(nilCard)
+  }
 
   return (
     <>
@@ -30,11 +35,11 @@ function App() {
         selectedCell={selectedCell}
         selectedCard={selectedCard}
         turn={turn}
-        nextTurn={nextTurnFn}
+        nextTurn={nextTurn}
         setBoard={setBoard}
         setSelectedCell={setSelectedCell}
       />
-      <div className="turn-text" onClick={nextTurnFn}>turn: {turn}</div>
+      <div className="turn-text" onClick={nextTurn}>turn: {turn}</div>
       <CardShower
         cards={cards}
         selectedCardIndex={cards.playerCards[turn].findIndex(card => (card === selectedCard))}
@@ -43,27 +48,6 @@ function App() {
       />
     </>
   )
-}
-
-function nextTurn(
-  turn: number,
-  setTurn: React.Dispatch<React.SetStateAction<number>>,
-  setSelectedCell: React.Dispatch<React.SetStateAction<Position>>,
-  setSelectedCard: React.Dispatch<React.SetStateAction<Card>>
-): void {
-  setTurn(turn === 0 ? 1 : 0)
-  setSelectedCell(nilPos)
-  setSelectedCard(nilCard)
-}
-
-function generateCards(cards: CardDeck): Cards {
-  return {
-    playerCards: [
-      [cards[0], cards[1]],
-      [cards[2], cards[3]]
-    ],
-    fifthCard: cards[4]
-  }
 }
 
 export default App

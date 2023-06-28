@@ -1,6 +1,7 @@
 import Cell from "./Cell"
 import { Board as TBoard, Card, Position } from "./types"
 import "./css/Board.css"
+import { isHighlighted, isSelected } from "./functions"
 
 type Props = {
   board: TBoard
@@ -36,18 +37,6 @@ function Board({board, selectedCell, selectedCard, turn, nextTurn, setBoard, set
       ))}
     </div>
   )
-}
-
-function isSelected(cell: Position, selectedCell: Position): boolean {
-  return cell[0] === selectedCell[0] && cell[1] === selectedCell[1]
-}
-
-function isHighlighted(cell: Position, selectedCell: Position, selectedCard: Card): boolean {
-  return selectedCard.some(move => {
-    if (cell[0] === selectedCell[0] + move[0] && cell[1] === selectedCell[1] + move[1]) {
-      return true
-    }
-  })
 }
 
 export default Board
