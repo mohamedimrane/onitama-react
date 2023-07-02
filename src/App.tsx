@@ -23,7 +23,23 @@ function App() {
   const [selectedCard, setSelectedCard] = useState<Card>(nilCard)
 
   function nextTurn(): void {
+    // card switching
+    const toSwitch = selectedCard
+    const fifthCard = cards.fifthCard
+    const toSwitchIndex = cards.playerCards[turn].findIndex(card => {
+      return card === toSwitch
+    })
+
+    const newCards = { ...cards }
+    newCards.playerCards[turn][toSwitchIndex] = fifthCard
+    newCards.fifthCard = toSwitch
+
+    setCards(newCards)
+
+    // turn changing
     setTurn(turn === 0 ? 1 : 0)
+
+    // variable reseting
     setSelectedCell(nilPos)
     setSelectedCard(nilCard)
   }
