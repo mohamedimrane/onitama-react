@@ -94,7 +94,7 @@ function App() {
         setSelectedCell={setSelectedCell}
         isPlaying={isPlaying}
       />
-      <div className="turn-text" onClick={nextTurn}>turn: {turn}</div>
+      <div className="turn-text">turn: {turn}</div>
       <CardShower
         cards={cards}
         selectedCardIndex={cards.playerCards[turn].findIndex(card => (card === selectedCard))}
