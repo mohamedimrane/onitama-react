@@ -17,7 +17,7 @@ function CardShower({ cards, selectedCardIndex, turn, setSelectedCard }: Props) 
   return (
     <div className="card-container">
       {cards.playerCards[turn].map((card, iCard) => (
-        <Card className={selectedCardIndex === iCard ? "selected-card": ""}  card={card} handleClick={handleClick} key={iCard} />
+        <Card className={selectedCardIndex === iCard ? "selected-card": ""}  card={card} onClick={handleClick} key={iCard} />
       ))}
     </div>
   )

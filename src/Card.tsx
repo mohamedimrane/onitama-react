@@ -3,14 +3,14 @@ import { matchCells } from "./functions"
 import { Card as TCard } from "./types"
 
 type Props = {
-  handleClick: (card: TCard) => any
   card: TCard
   className?: string
+  onClick?: Function
 }
 
-export function Card({handleClick, card, className}: Props) {
+export function Card({card, className, onClick}: Props) {
   return (
-    <div className={"card " + className} onClick={handleClick(card)}>
+    <div className={"card " + className} onClick={onClick?.(card)}>
       {emptyBoard.map((row, iRow) => (
         <div className="card-row" key={iRow}>
           {row.map((_, iCell) => (
