@@ -15,10 +15,15 @@ function CardShower({ cards, selectedCardIndex, turn, setSelectedCard }: Props) 
   }
 
   return (
-    <div className="card-container">
-      {cards.playerCards[turn].map((card, iCard) => (
-        <Card className={selectedCardIndex === iCard ? "selected-card": ""}  card={card} onClick={handleClick} key={iCard} />
-      ))}
+    <div className="cards-container">
+      <div className="playable-cards-container">
+        {cards.playerCards[turn].map((card, iCard) => (
+          <Card className={selectedCardIndex === iCard ? "selected-card": ""}  card={card} onClick={handleClick} key={iCard} />
+        ))}
+      </div>
+      <div className="fifth-card-container">
+        <Card card={cards.fifthCard} />
+      </div>
     </div>
   )
 }

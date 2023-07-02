@@ -1,6 +1,14 @@
-.card-container {
+.cards-container {
+  display: flex;
+}
+
+.playable-cards-container {
   display: flex;
   /* justify-content: space-evenly; */
+}
+
+.fifth-card-container {
+  margin-left: 65px;
 }
 
 .card {
