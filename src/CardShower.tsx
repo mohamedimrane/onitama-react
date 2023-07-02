@@ -1,36 +1,23 @@
-import { emptyBoard } from "./constants"
-import { Card, Cards, Position } from "./types"
+import { Card as TCard, Cards } from "./types"
 import "./css/CardShower.css"
-import { matchCells } from "./functions"
+import { Card } from "./Card.tsx"
 
 type Props = {
   cards: Cards
   selectedCardIndex: number
   turn: number
-  setSelectedCard: React.Dispatch<React.SetStateAction<Card>>
+  setSelectedCard: React.Dispatch<React.SetStateAction<TCard>>
 }
 
-function CardShower({cards, selectedCardIndex, turn, setSelectedCard}: Props) {
-
-  function handleClick(card: Card): () => void {
+function CardShower({ cards, selectedCardIndex, turn, setSelectedCard }: Props) {
+  function handleClick(card: TCard) {
     return () => { setSelectedCard(card) }
   }
 
   return (
     <div className="card-container">
       {cards.playerCards[turn].map((card, iCard) => (
-        <div className={"card" + (selectedCardIndex === iCard ? " selected-card" : "")} onClick={handleClick(card)} key={iCard}>
-          {emptyBoard.map((row, iRow) => (
-            <div className="card-row" key={iRow}>
-              {row.map((_, iCell) => (
-                <div className="card-cell" key={iCell}>
-                  {matchCells(card, [iCell, iRow]) ? "X" : ""}
-                  {iCell === 2 && iRow === 2 ? "O" : ""}
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
+        <Card className={selectedCardIndex === iCard ? "selected-card": ""}  card={card} handleClick={handleClick} key={iCard} />
       ))}
     </div>
   )

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Board from "./Board"
 import { initialCards, nilCard, nilPos } from "./constants"
-import { Board as TBoard, Card, CardDeck, Cards, Position} from "./types"
+import { Board as TBoard, Card, Cards, Position} from "./types"
 import CardShower from "./CardShower"
 import './css/App.css'
 import { generateCards } from "./functions"
