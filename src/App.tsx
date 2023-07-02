@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Board from "./Board"
-import { initialCards, nilCard, nilPos } from "./constants"
+import { initialCards, m0C, m1C, nilCard, nilPos } from "./constants"
 import { Board as TBoard, Card, Cards, Position} from "./types"
 import CardShower from "./CardShower"
 import './css/App.css'
@@ -43,6 +43,36 @@ function App() {
     setSelectedCell(nilPos)
     setSelectedCard(nilCard)
   }
+
+  function checkWin(): void {
+    let p0Wins = false
+    let p1Wins = false
+
+    p0Wins = board.every(row => {
+      return row.every(cell => {
+        return cell !== m1C
+      })
+    })
+
+    p1Wins = board.every(row => {
+      return row.every(cell => {
+        return cell !== m0C
+      })
+    })
+
+    if (!p0Wins && !p1Wins) {
+      if (board[0][2] === m1C) p1Wins = true
+      else if (board[4][2] === m0C) p0Wins = true
+    }
+
+    if (p1Wins) {
+      console.log("1 wins");
+    } else if (p0Wins) {
+      console.log("0 wins")
+    }
+  }
+
+  useEffect(checkWin, [board])
 
   return (
     <>

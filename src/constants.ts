@@ -20,8 +20,8 @@ export const emptyBoard: Board = [
     ["", "", "", "", ""]
 ]
 
-export const emptyC = "" // empty cell
-export const m0C = "m0"  // master 0
-export const m1C = "m1"  // master 1
-export const d0C = "d0"  // disciple 0
-export const d1C = "d1"  // disciple 1
+export const emptyC: string = "" // empty cell
+export const m0C: string = "m0"  // master 0
+export const m1C: string = "m1"  // master 1
+export const d0C: string = "d0"  // disciple 0
+export const d1C: string = "d1"  // disciple 1
