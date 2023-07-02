@@ -7,11 +7,16 @@ type Props = {
   selectedCardIndex: number
   turn: number
   setSelectedCard: React.Dispatch<React.SetStateAction<TCard>>
+  isPlaying: boolean
 }
 
-function CardShower({ cards, selectedCardIndex, turn, setSelectedCard }: Props) {
+function CardShower({cards, selectedCardIndex, turn, setSelectedCard, isPlaying}: Props) {
   function handleClick(card: TCard) {
-    return () => { setSelectedCard(card) }
+    return () => {
+      if (!isPlaying) return
+
+      setSelectedCard(card)
+    }
   }
 
   return (

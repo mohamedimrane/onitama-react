@@ -11,9 +11,10 @@ type Props = {
   nextTurn: () => void
   setBoard: React.Dispatch<React.SetStateAction<string[][]>>
   setSelectedCell: React.Dispatch<React.SetStateAction<Position>>
+  isPlaying: boolean
 }
 
-function Board({board, selectedCell, selectedCard, turn, nextTurn, setBoard, setSelectedCell}: Props) {
+function Board({board, selectedCell, selectedCard, turn, nextTurn, setBoard, setSelectedCell, isPlaying}: Props) {
   return (
     <div className="board">
       {board.map((row, iRow) => (
@@ -31,6 +32,7 @@ function Board({board, selectedCell, selectedCard, turn, nextTurn, setBoard, set
               setBoard={setBoard}
               setSelectedCell={setSelectedCell}
               key={iCell}
+              isPlaying={isPlaying}
             />
           ))}
         </div>

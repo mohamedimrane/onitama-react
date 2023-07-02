@@ -14,11 +14,14 @@ type Props = {
   nextTurn: () => void
   setBoard: React.Dispatch<React.SetStateAction<string[][]>>
   setSelectedCell: React.Dispatch<React.SetStateAction<Position>>
+  isPlaying: boolean
 }
 
-function Cell({board, cell, position, selectedCell, selected, highlighted, turn, nextTurn, setBoard, setSelectedCell}: Props) {
+function Cell({board, cell, position, selectedCell, selected, highlighted, turn, nextTurn, setBoard, setSelectedCell, isPlaying}: Props) {
 
   function handleClick(): void {
+    if (!isPlaying) return
+
     // selects cell and returns on clicking onw player's pieces
     if (playerOfCell(cell) === turn) {
       setSelectedCell(position)

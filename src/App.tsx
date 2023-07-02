@@ -7,6 +7,8 @@ import './css/App.css'
 import { generateCards } from "./functions"
 
 function App() {
+  const [isPlaying, setIsPlaying] = useState(true)
+
   const [board, setBoard] = useState<TBoard>([
     ["d0", "d0", "m0", "d0", "d0"],
     ["", "", "", "", ""],
@@ -36,12 +38,9 @@ function App() {
 
     setCards(newCards)
 
-    // turn changing
     setTurn(turn === 0 ? 1 : 0)
 
-    // variable reseting
-    setSelectedCell(nilPos)
-    setSelectedCard(nilCard)
+    unselectEverything()
   }
 
   function checkWin(): void {
@@ -67,9 +66,18 @@ function App() {
 
     if (p1Wins) {
       console.log("1 wins");
+      setIsPlaying(false)
+      unselectEverything()
     } else if (p0Wins) {
       console.log("0 wins")
+      setIsPlaying(false)
+      unselectEverything()
     }
+  }
+
+  function unselectEverything(): void {
+    setSelectedCell(nilPos)
+    setSelectedCard(nilCard)
   }
 
   useEffect(checkWin, [board])
@@ -84,6 +92,7 @@ function App() {
         nextTurn={nextTurn}
         setBoard={setBoard}
         setSelectedCell={setSelectedCell}
+        isPlaying={isPlaying}
       />
       <div className="turn-text" onClick={nextTurn}>turn: {turn}</div>
       <CardShower
@@ -91,6 +100,7 @@ function App() {
         selectedCardIndex={cards.playerCards[turn].findIndex(card => (card === selectedCard))}
         turn={turn}
         setSelectedCard={setSelectedCard}
+        isPlaying={isPlaying}
       />
     </>
   )
