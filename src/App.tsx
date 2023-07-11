@@ -96,7 +96,7 @@ function App() {
           setSelectedCell={setSelectedCell}
           isPlaying={isPlaying}
         />
-        <div className="turn-text">turn: {turn}</div>
+        <div className="turn-text">{turn === 0 ? "Red player's turn" : turn === 1 ? "Blue player's turn" : ""}</div>
         <CardShower
           cards={cards}
           selectedCardIndex={cards.playerCards[turn].findIndex(card => (card === selectedCard))}
