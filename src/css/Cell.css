@@ -1,11 +1,49 @@
-.highlighted-cell {
-  background-color: greenyellow;
+.cell {
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 40px;
 }
 
-.to-be-attacked-cell {
-  background-color: red;
+.board .row:nth-child(odd) .cell:nth-child(even),
+.board .row:nth-child(even) .cell:nth-child(odd) {
+  background-color: #EDEED2;
 }
 
-.selected-cell {
-  background-color: yellow;
+.board .row:nth-child(odd) .cell:nth-child(odd),
+.board .row:nth-child(even) .cell:nth-child(even) {
+  background-color: #759656;
+}
+
+.board .row:nth-child(odd) .cell.highlighted-cell:nth-child(even),
+.board .row:nth-child(even) .cell.highlighted-cell:nth-child(odd) {
+  background-color: #F9C365 !important;
+}
+
+.board .row:nth-child(odd) .cell.highlighted-cell:nth-child(odd),
+.board .row:nth-child(even) .cell.highlighted-cell:nth-child(even) {
+  background-color: #CEA332 !important;
+}
+
+.board .row:nth-child(odd) .cell.to-be-attacked-cell:nth-child(even),
+.board .row:nth-child(even) .cell.to-be-attacked-cell:nth-child(odd) {
+  background-color: #EE806B !important;
+}
+
+.board .row:nth-child(odd) .cell.to-be-attacked-cell:nth-child(odd),
+.board .row:nth-child(even) .cell.to-be-attacked-cell:nth-child(even) {
+  background-color: #D66E52 !important;
+}
+
+.board .row:nth-child(odd) .cell.selected-cell:nth-child(even),
+.board .row:nth-child(even) .cell.selected-cell:nth-child(odd) {
+  background-color: #F7F685 !important;
+}
+
+.board .row:nth-child(odd) .cell.selected-cell:nth-child(odd),
+.board .row:nth-child(even) .cell.selected-cell:nth-child(even) {
+  background-color: #BCCA3F !important;
 }

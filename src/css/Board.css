@@ -1,18 +1,7 @@
 .board {
-    display: inline-block;
+  display: inline-block;
 }
 
 .row {
-    display: flex;
-}
-
-.cell {
-    height: 100px;
-    width: 100px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 2px solid black;
-    font-size: 40px;
+  display: flex;
 }

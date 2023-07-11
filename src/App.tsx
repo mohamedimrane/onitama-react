@@ -83,26 +83,29 @@ function App() {
   useEffect(checkWin, [board])
 
   return (
-    <>
-      <Board
-        board={board}
-        selectedCell={selectedCell}
-        selectedCard={selectedCard}
-        turn={turn}
-        nextTurn={nextTurn}
-        setBoard={setBoard}
-        setSelectedCell={setSelectedCell}
-        isPlaying={isPlaying}
-      />
-      <div className="turn-text">turn: {turn}</div>
-      <CardShower
-        cards={cards}
-        selectedCardIndex={cards.playerCards[turn].findIndex(card => (card === selectedCard))}
-        turn={turn}
-        setSelectedCard={setSelectedCard}
-        isPlaying={isPlaying}
-      />
-    </>
+    <div className="container">
+      <div>
+        <h1 className="text-center">ONITAMA</h1>
+        <Board
+          board={board}
+          selectedCell={selectedCell}
+          selectedCard={selectedCard}
+          turn={turn}
+          nextTurn={nextTurn}
+          setBoard={setBoard}
+          setSelectedCell={setSelectedCell}
+          isPlaying={isPlaying}
+        />
+        <div className="turn-text">turn: {turn}</div>
+        <CardShower
+          cards={cards}
+          selectedCardIndex={cards.playerCards[turn].findIndex(card => (card === selectedCard))}
+          turn={turn}
+          setSelectedCard={setSelectedCard}
+          isPlaying={isPlaying}
+        />
+      </div>
+    </div>
   )
 }
 
