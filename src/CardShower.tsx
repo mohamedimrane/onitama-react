@@ -26,9 +26,9 @@ function CardShower({cards, selectedCardIndex, turn, setSelectedCard, isPlaying}
           <Card className={selectedCardIndex === iCard ? "selected-card": ""}  card={card} onClick={handleClick} key={iCard} />
         ))}
       </div>
-      <div className="fifth-card-container">
+      {/*<div className="fifth-card-container">
         <Card card={cards.fifthCard} />
-      </div>
+      </div>*/}
     </div>
   )
 }
