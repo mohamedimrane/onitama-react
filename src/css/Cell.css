@@ -8,6 +8,13 @@
   font-size: 40px;
 }
 
+.cell img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70px;
+}
+
 .board .row:nth-child(odd) .cell:nth-child(even),
 .board .row:nth-child(even) .cell:nth-child(odd) {
   background-color: #EDEED2;

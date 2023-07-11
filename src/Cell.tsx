@@ -2,6 +2,10 @@ import { emptyC, nilPos } from "./constants"
 import { Board, Position } from "./types"
 import "./css/Cell.css"
 import { playerOfCell } from "./functions"
+import m0_img from "./assets/m0.png"
+import m1_img from "./assets/m1.png"
+import d0_img from "./assets/d0.png"
+import d1_img from "./assets/d1.png"
 
 type Props = {
   board: Board
@@ -54,9 +58,15 @@ function Cell({board, cell, position, selectedCell, selected, highlighted, turn,
     selected ? " selected-cell" : ""
   )
 
+  let imgSource = null
+  if (cell === "m0") imgSource = m0_img
+  else if (cell === "m1") imgSource = m1_img
+  else if (cell === "d0") imgSource = d0_img
+  else if (cell === "d1") imgSource = d1_img
+
   return (
     <div className={className} onClick={handleClick}>
-      {cell}
+      {imgSource ? <img src={imgSource as string} /> : ""}
     </div>
   )
 }
