@@ -85,7 +85,7 @@ function App() {
   return (
     <div className="container">
       <div>
-        <h1 className="text-center">ONITAMA</h1>
+        <h1 className="title">ONITAMA</h1>
         <Board
           board={board}
           selectedCell={selectedCell}
