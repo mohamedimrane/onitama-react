@@ -9,14 +9,18 @@ type Props = {
 }
 
 export function Card({card, className, onClick}: Props) {
+  const getClassNameForCell = (iCell: number, iRow: number) => (
+    "card-cell" +
+    (matchCells(card, [iCell, iRow]) ? " card-cell-move" : 
+    iCell === 2 && iRow === 2 ? " card-cell-center" : "")
+  )
+  
   return (
     <div className={"card " + className} onClick={onClick?.(card)}>
       {emptyBoard.map((row, iRow) => (
         <div className="card-row" key={iRow}>
           {row.map((_, iCell) => (
-            <div className="card-cell" key={iCell}>
-              {matchCells(card, [iCell, iRow]) ? "X" : ""}
-              {iCell === 2 && iRow === 2 ? "O" : ""}
+            <div className={getClassNameForCell(iCell, iRow)} key={iCell}>
             </div>
           ))}
         </div>

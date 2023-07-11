@@ -12,12 +12,13 @@
 }
 
 .card {
-    margin-top: 10px;
-    margin-right: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: 5px transparent solid;
 }
 
 .card:nth-child(0) {
-    margin-right: 0px;
+  margin-right: 0px;
 }
 
 .card-row {
@@ -32,10 +33,34 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   font-size: 10px;
 }
 
+.card .card-row:nth-child(odd) .card-cell:nth-child(even),
+.card .card-row:nth-child(even) .card-cell:nth-child(odd) {
+  background-color: #EDEED2;
+}
+
+.card .card-row:nth-child(odd) .card-cell:nth-child(odd),
+.card .card-row:nth-child(even) .card-cell:nth-child(even) {
+  background-color: #759656;
+}
+
+.card .card-row:nth-child(odd) .card-cell.card-cell-move:nth-child(even),
+.card .card-row:nth-child(even) .card-cell.card-cell-move:nth-child(odd) {
+  background-color: #F9C365 !important;
+}
+
+.card .card-row:nth-child(odd) .card-cell.card-cell-move:nth-child(odd),
+.card .card-row:nth-child(even) .card-cell.card-cell-move:nth-child(even) {
+  background-color: #CEA332 !important;
+}
+
+.card-cell-center {
+  background-color: #363F2D !important;
+}
+
 .selected-card {
-  background-color: yellow;
+  border: 5px black solid;
 }
